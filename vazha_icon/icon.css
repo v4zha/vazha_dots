@@ -1,0 +1,68 @@
+*{
+	/*background-image: url("vazha_pazham.png");*/
+  background-color: #2E3440;
+}
+#vazha_div{
+	display: grid;
+	gap: 20px;	
+  padding-top: 80px;
+}
+#vazha_ico_div{
+	justify-self: center;
+    align-self: center;
+}
+.leaf{
+  stroke:#A3BE8C;
+    stroke: dasharray 40px;
+   /*
+   animation: leaf_load 1s linear infinite;
+  */
+}
+.stem{
+	stroke: #BF616A;
+      stroke: dasharray 10px;
+}
+.banana{
+	stroke: #EBCB8B;
+      stroke: dasharray 100px;
+   animation: banana_load 0.2s linear infinite;
+}
+.vazha_circle{
+   stroke: #88C0D0;
+   stroke-dasharray:400px;
+   animation: icon_load 1s linear infinite;
+}
+#vazha_icon{
+	fill-opacity: 0;
+	stroke-width:2px;
+	
+}
+#vaz_txt{
+	justify-self: center;
+    align-self: center;
+}
+#vazha_text{
+	font-family: 'Audiowide', cursive;
+  -webkit-text-stroke-width:2px;
+  -webkit-text-stroke-color:#88C0D0;
+	font-size: 80px;
+	color: transparent;
+}
+/* vazha animation go Brr....*/
+@keyframes icon_load{
+	to{
+    stroke-dasharray: 80px;
+}
+}
+@keyframes banana_load{
+	to{
+    stroke-dasharray: 10px;
+}
+}
+@keyframes leaf_load{
+	to{
+    stroke-dasharray: 10px;
+}
+}
+
+

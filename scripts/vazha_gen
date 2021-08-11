@@ -1,0 +1,323 @@
+#! /usr/bin/python3
+import math
+import math
+import random
+
+#TOT_CHAR_SET={'-','|','\\','/','=',"^"}
+X_MAX=200
+Y_MAX=30
+
+def get_x(x_list,y_coord):
+	x_index=[]
+	for i in range(X_MAX):
+		if x_list[y_coord][i]=="-":
+			x_index.append(i)
+			
+	return x_index
+
+def leaf_clean(x_coord,x2,y_coord,screen):
+		for x in range(x_coord,x2+1):
+			if x !=x_coord and screen[y_coord][x]=="-":
+				screen[y_coord][x]=" "
+
+def del_rem(y_coord,screen):
+	for x in range(X_MAX):
+		for y in range(y_coord,Y_MAX):
+			screen[y][x]=""
+
+
+def draw_ascii_line(y1,y2,screen):
+	x2=get_x(screen,y2)[-1]
+	x1=get_x(screen,y1)[0]
+	r_list=[]
+	for i in range(6):
+	 	r_list.append(random.randint(x1,x2+1))
+	#slope
+	m=(y2-y1)/(x2-x1)		
+	for x in range(x1,x2+1):
+		y=(x-x1)*m + y1	
+		y_coord=int(y)
+		if x in r_list:
+			screen[y_coord][x]="^"
+			#screen[y_coord][x+1]="\\"
+			#x=x+1
+				
+		else:
+			screen[y_coord][x]="-"
+		leaf_clean(x,x2+1,y_coord,screen)
+	
+	del_rem(y1,screen)
+	
+def draw_ascii_ellipse(a,b,org_x,org_y,screen):
+	x=[]
+	y=[]		
+	for theta in range(0,360):
+		cos_t=math.cos(math.radians(theta))
+		sin_t=math.sin(math.radians(theta))
+		denom=math.sqrt((b*cos_t)*(b*cos_t) + (a*sin_t)*(a*sin_t))
+		r=(a*b)/denom		    
+		x.append(r*cos_t+org_x)
+		y.append(r*sin_t+org_y)
+	x_co=[]
+	y_co=[]
+	for x_coord in x:
+		x_co.append(math.floor(x_coord))
+	for y_coord in y:
+	    y_co.append(math.floor(y_coord))
+	
+	for i in range(360):
+		screen[y_co[i]][x_co[i]]="-"
+
+
+def draw_leaf(a=26,b=5,foc_x=26,foc_y=6,y1=7,y2=5):
+	screen=[[" " for x in range(X_MAX)] for y in range(Y_MAX)] 
+	#a=26
+	#b=5
+	#focus shift
+	#foc_x=26
+	#foc_y=6    
+	#y2=5
+	#y1=7
+	
+	draw_ascii_ellipse(a,b,foc_x,foc_y,screen)
+	draw_ascii_line(y1,y2,screen)	
+
+#	for y in range(Y_MAX):
+	#		print(screen[y][x],end="")
+	#	print("")
+	
+	return screen
+
+
+def get_max(screen):
+	max_x=0
+	max_y=0
+	for y in range(Y_MAX):
+		for x in range(X_MAX):
+			if screen[y][x]=="-" or screen[y][x]=="^":
+				if x>max_x:
+					max_x=x
+				if y>max_y:
+					max_y=y	
+	return max_x,max_y+2
+
+def get_min(screen):
+	min_x=0
+	min_y=0
+	for y in range(Y_MAX):
+		for x in range(X_MAX):
+			if screen[y][x]=="-" or screen[y][x]=="^":
+				if x<min_x:
+					min_x=x
+				if y<min_y:
+					min_y=y	
+	return min_x,min_y
+
+def get_banana():
+	banana=[["" for x in range(10)]for y in range(10)]
+	canvas=[[" " for x in range(10)]for y in range(10)]
+	banana[0]=list(" |\\")
+	banana[1]=list("  \\\\")
+	banana[2]=list("  | |")
+	banana[3]=list("=======")
+	banana[4]=list("| | | |")
+	banana[5]=list(" | | |")
+	banana[6]=list("  | |")
+	banana[7]=list("   |")
+		 
+	for y in range(10):
+		for index,ele in enumerate(banana[y]):
+			canvas[y][index]=ele
+    
+	return canvas
+	
+#max canvas size
+X_MAX=200
+Y_MAX=30
+#set origin (100,50)
+OX=100
+OY=15
+#leaf_attach_coordinate (100,40)
+ACX=99
+ACY=15
+#tot_char set
+TOT_CHAR_SET={'-','|','\\','/','=',"^"}
+#colors :)
+END='\033[0m'
+GREEN='\033[92m'
+YELLOW='\033[93m'
+RED='\033[91m'
+CYAN='\033[96m'
+
+def mirror_leaf(leaf):
+	org_x=0
+	org_y=2
+	LX_MAX,LY_MAX=get_max(leaf)
+	leaf_mir=[[" " for x in range(X_MAX)] for y in range(Y_MAX)]	
+	for y in range(LY_MAX):
+		for x in range(LX_MAX):
+			leaf_mir[y+org_y][((int((OX*3)/2))-x-1)+org_x]=leaf[y][x]
+	"""
+	for y in range(LY_MAX):
+		for x in range(x_MAX):
+			print(leaf_mir[y][x],end="")
+		print("")	
+	"""
+	return leaf_mir
+	
+def rotate_leaf(leaf,rot_fac):
+	THETA=rot_fac
+	LX_MAX,LY_MAX=get_max(leaf)
+	rot_x=X_MAX
+	rot_y=Y_MAX
+	org_x=48
+	org_y=12
+	leaf_rot=[[" " for x in range(rot_x)] for y in range(rot_y)]	
+	cos_t=math.cos(math.radians(THETA))	
+	sin_t=math.sin(math.radians(THETA))
+	for y in range(LY_MAX):
+		for x in range(LX_MAX):
+			#     [ [cos_t,sin_t],[-sin_t,cos_t] ] * [ x , y ]                           
+			#lenear transformation go brrr :)
+			x_coord=org_x+x*cos_t+y*sin_t
+			y_coord=org_y+x*sin_t*(-1) +y*cos_t
+			x_co=int(x_coord)
+			y_co=int(y_coord)
+			leaf_rot[y_co][x_co]=leaf[y][x]	  
+	"""
+	for y in range(rot_y):
+		for x in range(rot_x):
+			print(leaf_rot[y][x],end="")
+		print("")		  
+	"""
+	return leaf_rot
+
+def vazha_color(ascii_char):	
+	if ascii_char=="^" or ascii_char=="-":
+		return GREEN+ascii_char+END
+	elif ascii_char in ['|','\\','=']:
+		return YELLOW+ascii_char+END
+	if ascii_char=="||":
+		return RED+ascii_char+END
+	else:
+		return ascii_char	
+
+def attach_leaf(leaf,rot_fac,mirror=False):
+	leaf_shift=[[" " for x in range(X_MAX)] for y in range(Y_MAX)]	
+	LX_MAX,LY_MAX=get_max(leaf)
+	#print("max >> : ",LX_MAX,LY_MAX)
+	#find y_coord of x_max :)
+	y_coord=0
+	for y in range(Y_MAX):
+		if leaf[y][LX_MAX]=="-" or leaf[y][LX_MAX]=="^":
+			if y>y_coord:
+				y_coord=y
+
+	#print("attach_point >> : ",LX_MAX,y_coord)
+	beautify=0
+	if rot_fac > 4 :
+		beautify=2
+	if not mirror:
+		#ORIGIN ==> (100,15)
+		org_y=OY+y_coord+beautify
+		#+beautify just to beautify :)
+		org_x=OX+LX_MAX+beautify
+		for y in range(Y_MAX):
+			for x in range(X_MAX):
+				leaf_shift[y-org_y][x-org_x]=leaf[y][x]
+	else:
+		#ORIGIN ==> (100,15)
+		#org_y=OY+y_coord
+		#+beautify just to beautify :)
+		#org_x=OX+LX_MAX+beautify
+		org_x=int((3*OX)/2)+4
+		org_y=1
+
+		for y in range(Y_MAX):
+			for x in range(X_MAX):
+				leaf_shift[y-org_y][x-org_x]=leaf[y][x]
+
+	return leaf_shift
+
+def attach_stem(canvas):
+	width=1
+	#max width => 3
+	for y in range(OY,Y_MAX):
+		if y>=Y_MAX-(Y_MAX/3):
+				width=1
+		if  y>= Y_MAX-(Y_MAX/10):
+				width=2
+		for i in range(width):
+				canvas[y][OX-width]="||"
+				canvas[y][OX+width]="||"
+
+def append_tree(tree,canvas):
+	for y in range(Y_MAX):
+		for x in range(X_MAX):
+			if not (tree[y][x] in TOT_CHAR_SET):
+				tree[y][x]=canvas[y][x]
+
+def attach_banana(banana):
+	banana_shift=[[" " for x in range(X_MAX)] for y in range(Y_MAX)]
+	for y in range(10):
+		for x in range(10):
+			banana_shift[OY+y+1][OX+x+4]=banana[y][x]
+	"""
+	for y in range(Y_MAX):
+		for x in range(X_MAX):
+			print(banana_shift[y][x],end="")
+		print("")				
+	"""
+	return banana_shift
+
+def draw_tree():
+	tree=[[" " for x in range(X_MAX)] for y in range(Y_MAX)]
+	canvas=[[" " for x in range(X_MAX)] for y in range(Y_MAX)]
+	#leaf set_1
+	leaf=attach_leaf(rotate_leaf(draw_leaf(a=15),rot_fac=6),rot_fac=6)
+	append_tree(tree,leaf)
+	leaf=attach_leaf(mirror_leaf(rotate_leaf(draw_leaf(a=20,b=5),rot_fac=5)),rot_fac=4,mirror=True)
+	append_tree(tree,leaf)
+	#leaf_set 2
+	leaf=attach_leaf(rotate_leaf(draw_leaf(a=5,b=20),rot_fac=8),rot_fac=2)
+	append_tree(tree,leaf)
+	leaf=attach_leaf(mirror_leaf(rotate_leaf(draw_leaf(a=20,b=5),rot_fac=5)),rot_fac=4,mirror=True)
+	append_tree(tree,leaf)
+	#leaf_set 3
+	leaf=attach_leaf(rotate_leaf(draw_leaf(a=12,b=9),rot_fac=3),rot_fac=3)
+	append_tree(tree,leaf)
+
+	leaf=attach_leaf(mirror_leaf(rotate_leaf(draw_leaf(a=5,b=20,foc_x=30,foc_y=5),rot_fac=2)),rot_fac=0,mirror=True)
+	append_tree(tree,leaf)
+	
+	#leaf_set 4
+	leaf=attach_leaf(rotate_leaf(draw_leaf(a=2,b=22),rot_fac=20),rot_fac=3)
+	append_tree(tree,leaf)
+
+	leaf=attach_leaf(mirror_leaf(rotate_leaf(draw_leaf(a=5,b=18),rot_fac=2)),rot_fac=0,mirror=True)
+	append_tree(tree,leaf)
+
+	leaf=attach_leaf(mirror_leaf(rotate_leaf(draw_leaf(a=7,b=20),rot_fac=6)),rot_fac=0,mirror=True)
+	append_tree(tree,leaf)
+
+	#attach banana
+	banana=attach_banana(get_banana())
+	append_tree(tree,banana)
+
+	#attach stem
+	attach_stem(canvas)
+	append_tree(tree,canvas)
+	for y in range(9,Y_MAX):	
+		for x in range(50,150):		
+			print(vazha_color(tree[y][x]),end="")
+		print("")
+	
+
+	print(" "*30,end="")
+	print(CYAN+"="*40+END)
+	print(" "*46,end="")
+	print("AL_VAZHA")
+	print(" "*30,end="")
+	print(CYAN+"="*40+END)
+
+draw_tree()	
