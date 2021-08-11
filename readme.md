@@ -1,5 +1,5 @@
 #### **Screenshots😁**
 
-![vazha](/screeshots/v1.png)
+![vazha](screeshots/v1.png)
 
 
