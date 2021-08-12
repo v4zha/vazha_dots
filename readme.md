@@ -1,4 +1,5 @@
 #### **Screenshots😁**
+Al vazha theme based on nord color palette
 
 ![vazha1](https://github.com/v4zha/vazha_dots/blob/master/screenshots/v2.png)
 
