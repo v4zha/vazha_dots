@@ -1,5 +1,7 @@
 #### **Screenshots😁**
 Al vazha theme based on nord color palette
+#wallpaper credits : 
+https://dribbble.com/shots/3593216-Vazha-Banana-Tree
 
 ![vazha1](https://github.com/v4zha/vazha_dots/blob/master/screenshots/v2.png)
 
