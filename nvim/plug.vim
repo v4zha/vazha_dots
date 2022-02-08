@@ -1,0 +1,12 @@
+call plug#begin()
+	Plug 'preservim/nerdtree'
+	Plug 'arcticicestudio/nord-vim'
+	Plug 'ryanoasis/vim-devicons'
+	Plug 'junegunn/fzf'
+	Plug 'LaTeX-Box-Team/LaTeX-Box'
+	Plug 'bling/vim-airline'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'ervandew/supertab'
+call plug#end()
+colorscheme nord
+let g:airline_theme='nord'
