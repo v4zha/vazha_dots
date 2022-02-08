@@ -1,0 +1,7 @@
+{
+	"rpc.showProblems":false,
+	"rpc.detailsViewing": "{workspace_folder}",
+	"rpc.detailsEditing":"{workspace_folder}",
+	"rpc.lowerDetailsEditing":"{file_name} : )",
+	"rpc.lowerDetailsViewing": "{file_name} : )"
+}

@@ -7,6 +7,8 @@ call plug#begin()
 	Plug 'bling/vim-airline'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ervandew/supertab'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 colorscheme nord
 let g:airline_theme='nord'
