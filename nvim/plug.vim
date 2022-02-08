@@ -10,3 +10,6 @@ call plug#begin()
 call plug#end()
 colorscheme nord
 let g:airline_theme='nord'
+hi LineNr term=bold cterm=bold ctermfg=9
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
