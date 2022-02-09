@@ -14,7 +14,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kadavul/.oh-my-zsh"
+export ZSH="/home/v4zha/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -82,8 +82,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
+plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -114,10 +113,24 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-#vazha is god
-/home/kadavul/scripts/vazha.sh
+#vazha is god 
+/home/v4zha/scripts/vazha.sh
+bindkey '^H' backward-kill-word
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
-alias shutdown="doas /sbin/shutdown"
-alias reboot="doas /sbin/reboot"
-alias poweroff="doas /sbin/poweroff"
+export TERM="xterm-kitty"
+export EDITOR="nvim"
+alias shutdown="sudo /sbin/shutdown"
+alias reboot="sudo /sbin/reboot"
+alias poweroff="sudo /sbin/poweroff"
+alias vazha-gen="~/scripts/vazha_gen"
+alias okey_da="sudo"
+alias pls="sudo"
+alias ls="ls --color=auto"
+eval "$(dircolors ~/.dir_colors)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+PATH="/home/v4zha/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/v4zha/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/v4zha/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/v4zha/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/v4zha/perl5"; export PERL_MM_OPT;

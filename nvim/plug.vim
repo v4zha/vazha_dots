@@ -9,6 +9,7 @@ call plug#begin()
 	Plug 'ervandew/supertab'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+	Plug 'sheerun/vim-polyglot'
 call plug#end()
 colorscheme nord
 let g:airline_theme='nord'

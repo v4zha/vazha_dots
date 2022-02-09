@@ -9,6 +9,7 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set wildmode=longest,list
+set splitbelow 
 set cc=80
 syntax on
 set mouse=a
