@@ -16,4 +16,4 @@ set mouse=a
 "set cursorline"
 set noswapfile
 set clipboard=unnamedplus
-
+hi LineNr term=bold cterm=bold ctermfg=9
