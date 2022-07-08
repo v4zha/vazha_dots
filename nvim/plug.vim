@@ -1,18 +1,25 @@
 call plug#begin()
 	Plug 'preservim/nerdtree'
-	Plug 'arcticicestudio/nord-vim'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'junegunn/fzf'
-	Plug 'LaTeX-Box-Team/LaTeX-Box'
+	Plug 'dense-analysis/ale'
 	Plug 'bling/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'airblade/vim-rooter'
 	Plug 'ervandew/supertab'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 	Plug 'sheerun/vim-polyglot'
     Plug 'glepnir/dashboard-nvim'
+	Plug  'dracula/vim', { 'as': 'dracula' }
+	Plug 'preservim/nerdcommenter'
+
+	"rust plugins
+	Plug 'rust-lang/rust.vim'
+
+
 call plug#end()
-colorscheme nord
-let g:airline_theme='nord'
+colorscheme dracula
+let g:airline_theme='dracula'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
