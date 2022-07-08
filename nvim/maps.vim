@@ -33,6 +33,10 @@ noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
 noremap <C-Q> <C-W>q
 noremap <C-Q>q <C-W>q!
+
+inoremap <expr> j pumvisible() ? "\<C-N>" : "<C-J>"
+inoremap <expr> k pumvisible() ? "\<C-P>" : "<C-K>"
+
 noremap <Leader>n :bn<CR>
 noremap <Leader>n :bn<CR>
 noremap <Leader>p :bp<CR>
