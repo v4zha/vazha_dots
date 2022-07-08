@@ -1,14 +1,5 @@
-#startx go brrrrr==========
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-   exec startx
-fi
-#==========================
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -117,20 +108,28 @@ source $ZSH/oh-my-zsh.sh
 /home/v4zha/scripts/vazha.sh
 bindkey '^H' backward-kill-word
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
-export TERM="xterm-kitty"
 export EDITOR="nvim"
 alias shutdown="sudo /sbin/shutdown"
 alias reboot="sudo /sbin/reboot"
 alias poweroff="sudo /sbin/poweroff"
 alias vazha-gen="~/scripts/vazha_gen"
-alias okey_da="sudo"
 alias pls="sudo"
-alias ls="ls --color=auto"
+#alias ls="ls --color=auto"
+alias ls="exa"
+alias vdir="cd /mnt/c/Users/rv1n"
+
+ 
 eval "$(dircolors ~/.dir_colors)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 PATH="/home/v4zha/perl5/bin${PATH:+:${PATH}}"; export PATH;
+WIN_PATH="/mnt/c/Users/rv1n";export WIN_PATH;
 PERL5LIB="/home/v4zha/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/v4zha/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/v4zha/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/v4zha/perl5"; export PERL_MM_OPT;
+
+if type rg &> /dev/null;then
+	 export FZF_DEFAULT_COMMAND='rg --files'
+	 export FZF_DEFAUTL_OPTS='m --height 50% --border'
+fi
