@@ -1,4 +1,5 @@
 call plug#begin()
+
 	Plug 'preservim/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'junegunn/fzf'
@@ -7,13 +8,12 @@ call plug#begin()
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'airblade/vim-rooter'
-	Plug 'ervandew/supertab'
+	Plug 'tpope/vim-surround'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'sheerun/vim-polyglot'
     Plug 'glepnir/dashboard-nvim'
 	Plug  'dracula/vim', { 'as': 'dracula' }
 	Plug 'preservim/nerdcommenter'
-
 	"rust plugins
 	Plug 'rust-lang/rust.vim'
 
