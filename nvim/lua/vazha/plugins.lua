@@ -16,7 +16,13 @@ return require('packer').startup(function(use)
     use {"nvim-lua/plenary.nvim"}
     use {"nvim-telescope/telescope.nvim"}
     use {"folke/which-key.nvim"}
-  if Packer_Bootstrap then
+    use {"nvim-lualine/lualine.nvim"}
+    use {"nvim-treesitter/nvim-treesitter",run = ":TSUpdate"}
+    use {"neovim/nvim-lspconfig"}
+    use {"williamboman/nvim-lsp-installer"}
+    -- use {""}
+
+ if Packer_Bootstrap then
     require('packer').sync()
   end
 end)

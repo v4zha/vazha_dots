@@ -1,5 +1,5 @@
 local config = {
-    -- termguicolors = true,
+    termguicolors = true,
     number = true,
     relativenumber = true,
     numberwidth = 4,
