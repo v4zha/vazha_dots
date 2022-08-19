@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 bindkey '^H' backward-kill-word
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
+export GPG_TTY=$(tty)
 alias shutdown="sudo /sbin/shutdown"
 alias reboot="sudo /sbin/reboot"
 alias poweroff="sudo /sbin/poweroff"
