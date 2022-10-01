@@ -3,7 +3,7 @@ if not status then
     return
 end
 treesitter.setup({
-    ensure_installed = {"c", "lua", "rust"},
+    ensure_installed = {"c", "lua", "rust", "toml", "yaml", "markdown"},
     auto_install = true,
     highlight = {
         enable = true
@@ -13,5 +13,10 @@ treesitter.setup({
     },
     indent = {
         enable = true
+    },
+    rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil
     }
 })
