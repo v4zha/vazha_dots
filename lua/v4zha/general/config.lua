@@ -8,14 +8,14 @@ local config = {
     hlsearch = true,
     ignorecase = true,
     showmode = false,
-    showtabline = 2,
+    -- showtabline = 2,
     swapfile = false,
     signcolumn = "yes",
     sidescrolloff = 8,
     backup = false,
     clipboard = "unnamedplus",
     cmdheight = 2,
-    completeopt = { "menuone", "noselect" },
+    completeopt = {"menuone", "noselect"},
     conceallevel = 0,
     fileencoding = "utf-8",
     pumheight = 10,
@@ -35,6 +35,8 @@ local config = {
     wrap = false,
 
     scrolloff = 8,
+
+    winbar = "%t"
 }
 for k, v in pairs(config) do
     vim.opt[k] = v

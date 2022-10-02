@@ -11,6 +11,7 @@ require("v4zha.plugins.nvimtree")
 require("v4zha.plugins.treesitter")
 require("v4zha.plugins.whichkey")
 require("v4zha.plugins.lsp")
+require("v4zha.plugins.cmp")
 require("v4zha.plugins.autopairs")
 require("v4zha.plugins.comment")
 -- ==============================
