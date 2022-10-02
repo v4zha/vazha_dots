@@ -6,21 +6,27 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
+
     use {"wbthomason/packer.nvim"}
+    use {"lewis6991/impatient.nvim"}
+    use {"nvim-lua/plenary.nvim"}
+
+    use {"rebelot/kanagawa.nvim"}
     use {"windwp/nvim-autopairs"}
     use {"numToStr/Comment.nvim"}
-    use {"lewis6991/impatient.nvim"}
-    use {"rebelot/kanagawa.nvim"}
     use {"kyazdani42/nvim-web-devicons"}
     use {"nvim-lualine/lualine.nvim"}
-    use {"nvim-lua/plenary.nvim"}
     use {'kyazdani42/nvim-tree.lua'}
-    use {'nvim-treesitter/nvim-treesitter'}
+
+    -- LSP & Treesitter
+
     use {'neovim/nvim-lspconfig'}
     use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
+    use {'nvim-treesitter/nvim-treesitter'}
+
+    -- 
 
     -- cmp
-    use {'neovim/nvim-lspconfig'}
     use {'hrsh7th/cmp-nvim-lsp'}
     use {'hrsh7th/cmp-buffer'}
     use {'hrsh7th/cmp-path'}
@@ -30,11 +36,9 @@ return require('packer').startup(function(use)
     use {'saadparwaiz1/cmp_luasnip'}
 
     -- 
-    use {"numtostr/comment.nvim"}
-    use {'simrat39/rust-tools.nvim'}
-    use {'mfussenegger/nvim-dap'}
     use {'voldikss/vim-floaterm'}
     use {'folke/which-key.nvim'}
+
     if Packer_Bootstrap then
         require('packer').sync()
     end
