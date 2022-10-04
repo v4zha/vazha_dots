@@ -13,12 +13,14 @@ require("v4zha.plugins.whichkey")
 require("v4zha.plugins.lsp")
 require("v4zha.plugins.cmp")
 require("v4zha.plugins.autopairs")
+require("v4zha.plugins.telescope")
 require("v4zha.plugins.comment")
 -- ==============================
 --    MOD : keymaps
 -- ==============================
 require("v4zha.keymaps.general")
 require("v4zha.keymaps.lsp")
+require("v4zha.keymaps.telescope")
 -- ==============================
 --    MOD : general
 -- ==============================

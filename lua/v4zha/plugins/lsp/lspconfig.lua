@@ -18,7 +18,7 @@ local function lsp_setup(lsp_server, opts)
     lspconfig[lsp_server].setup(opts)
 end
 
-local lsp_servers = {'rust_analyzer', 'clangd', 'sumneko_lua'}
+local lsp_servers = {'clangd', 'sumneko_lua'}
 
 for _, lsp_server in pairs(lsp_servers) do
     lsp_setup(lsp_server)
