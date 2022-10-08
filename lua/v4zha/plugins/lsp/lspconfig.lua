@@ -1,3 +1,4 @@
+local lsp_servers = require("v4zha.plugins.lsp.lspsrv").lsp_servers
 local lsp_flags = {
     debounce_text_changes = 150
 }
@@ -17,8 +18,6 @@ local function lsp_setup(lsp_server, opts)
     end
     lspconfig[lsp_server].setup(opts)
 end
-
-local lsp_servers = {'clangd', 'sumneko_lua'}
 
 for _, lsp_server in pairs(lsp_servers) do
     lsp_setup(lsp_server)
