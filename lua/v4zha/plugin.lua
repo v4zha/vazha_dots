@@ -22,10 +22,12 @@ return require('packer').startup(function(use)
     -- LSP & Treesitter
 
     use {'neovim/nvim-lspconfig'}
-    use {'simrat39/rust-tools.nvim'}
+
     use {"williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
     use {'nvim-treesitter/nvim-treesitter'}
-
+    -- Rust --
+    use {'simrat39/rust-tools.nvim'}
+    use {'saecki/crates.nvim'}
     -- 
 
     -- cmp & Snippet

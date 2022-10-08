@@ -8,9 +8,9 @@ local whichmap = {
     ["f"] = {"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
              "Find files"},
     ["F"] = {"<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep"},
-    ["g"] = {"<cmd>FloatermNew gitui<cr>", "GitUi"},
-    ["t"] = {"<cmd>FloatermToggle<cr>", "Floaterm"},
-    ["v"] = {"<cmd>FloatermNew vmod -a && $SHELL <cr>", "Vmod Loader"},
+    ["g"] = {"<cmd>FloatermNew --height=0.8 --width=0.8 gitui<cr>", "GitUi"},
+    ["t"] = {"<cmd>FloatermToggle --height=0.8 --width=0.8 <cr>", "Floaterm"},
+    ["v"] = {"<cmd>FloatermNew  --height=0.8 --width=0.8  vmod -a && $SHELL <cr>", "Vmod Loader"},
     p = {
         name = "Packer",
         c = {"<cmd>PackerCompile<cr>", "Compile"},
@@ -23,6 +23,7 @@ local whichmap = {
     l = {
         name = "LSP",
         a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
+        c = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Actions"},
         d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
         w = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
         f = {"<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format"},
@@ -46,6 +47,12 @@ local whichmap = {
         R = {"<cmd>Telescope registers<cr>", "Registers"},
         k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
         C = {"<cmd>Telescope commands<cr>", "Commands"}
+    },
+    r = {
+        name = "Rust",
+        a = {"<cmd>RustHoverActions<cr>", "RustHoverAction"}, -- HoverActions in Window : )
+        c = {"<cmd>RustCodeAction<cr>", "RustCodeAction"}, -- Code Action in Window : )
+        g = {"<cmd>RustViewCrateGraph<cr>", "CrateGraph"}
     }
 }
 
