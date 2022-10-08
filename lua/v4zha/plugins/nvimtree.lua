@@ -13,6 +13,12 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
+    open_on_setup = true,
+    actions = {
+        open_file = {
+            quit_on_open = true
+        }
+    },
     update_focused_file = {
         enable = true,
         update_cwd = true
