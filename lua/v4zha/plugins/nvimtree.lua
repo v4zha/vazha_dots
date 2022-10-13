@@ -14,6 +14,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
     open_on_setup = true,
+    open_on_setup_file = false,
     actions = {
         open_file = {
             quit_on_open = true
