@@ -29,6 +29,7 @@ keymap("n", "<C-l>", "<C-w>l")
 keymap("n", "<S-l>", ":bn<CR>")
 keymap("n", "<S-h>", ":bp<CR>")
 
+keymap("n","<C-z>",":redo<CR>")
 return {
     keymap = keymap
 }
