@@ -45,6 +45,8 @@ return require('packer').startup(function(use)
     use {'voldikss/vim-floaterm'}
     use {'folke/which-key.nvim'}
 
+    -- colors
+      
     if Packer_Bootstrap then
         require('packer').sync()
     end
