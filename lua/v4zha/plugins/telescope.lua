@@ -3,6 +3,7 @@ if not status then
     return
 end
 telescope.setup()
+telescope.load_extension('projects')
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', 'ff', builtin.find_files, {})
 vim.keymap.set('n', 'fg', builtin.live_grep, {})

@@ -16,9 +16,9 @@ return require('packer').startup(function(use)
     use { "numToStr/Comment.nvim" }
     use { "kyazdani42/nvim-web-devicons" }
     use { "nvim-lualine/lualine.nvim" }
-    use { 'kyazdani42/nvim-tree.lua' }
     use { "nvim-telescope/telescope.nvim" }
-
+    use { 'kyazdani42/nvim-tree.lua' }
+    use {"ahmedkhalf/project.nvim"}
     -- LSP & Treesitter
 
     use { 'neovim/nvim-lspconfig' }

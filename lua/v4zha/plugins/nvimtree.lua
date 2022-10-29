@@ -20,9 +20,11 @@ nvim_tree.setup {
             quit_on_open = true
         }
     },
+    sync_root_with_cwd = true,
+    respect_buf_cwd = true,
     update_focused_file = {
         enable = true,
-        update_cwd = true
+        update_root = true
     },
     renderer = {
         root_folder_modifier = ":t",
@@ -66,8 +68,8 @@ nvim_tree.setup {
         width = 30,
         side = "left",
         mappings = {
-            list = {{
-                key = {"l", "<CR>", "o"},
+            list = { {
+                key = { "l", "<CR>", "o" },
                 cb = tree_cb "edit"
             }, {
                 key = "h",
@@ -75,7 +77,7 @@ nvim_tree.setup {
             }, {
                 key = "v",
                 cb = tree_cb "vsplit"
-            }}
+            } }
         }
     }
 }
