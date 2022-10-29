@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
     use { "nvim-lualine/lualine.nvim" }
     use { "nvim-telescope/telescope.nvim" }
     use { 'kyazdani42/nvim-tree.lua' }
-    use {"ahmedkhalf/project.nvim"}
+    use { "ahmedkhalf/project.nvim" }
     -- LSP & Treesitter
 
     use { 'neovim/nvim-lspconfig' }
@@ -46,7 +46,11 @@ return require('packer').startup(function(use)
     use { 'folke/which-key.nvim' }
 
     -- colors
-    use {'rrethy/vim-hexokinase',run="cd ~/local/share/nvim/site/pack/packer/start/hexokinase && make hexokinase"}
+    use { 'rrethy/vim-hexokinase', run = "cd ~/local/share/nvim/site/pack/packer/start/hexokinase && make hexokinase" }
+
+    --markdown
+    use { "ellisonleao/glow.nvim" }
+
     if Packer_Bootstrap then
         require('packer').sync()
     end
