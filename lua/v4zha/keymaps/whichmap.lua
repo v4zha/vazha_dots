@@ -1,59 +1,66 @@
 local whichmap = {
-    ["b"] = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-             "Buffers"},
-    ["e"] = {"<cmd>NvimTreeToggle<cr>", "NvimTree"},
-    ["w"] = {"<cmd>w!<CR>", "Save"},
-    ["q"] = {"<cmd>q!<CR>", "Quit"},
-    ["c"] = {"<cmd>Bdelete!<CR>", "Close Buffer"},
-    ["f"] = {"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-             "Find files"},
-    ["F"] = {"<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep"},
-    ["g"] = {"<cmd>FloatermNew --height=0.8 --width=0.8 gitui<cr>", "GitUi"},
-    ["t"] = {"<cmd>FloatermToggle --height=0.8 --width=0.8 <cr>", "Floaterm"},
-    ["v"] = {"<cmd>FloatermNew  --height=0.8 --width=0.8  vmod -a && $SHELL <cr>", "Vmod Loader"},
+    ["b"] = { "<CMD>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+        "Buffers" },
+    ["e"] = { "<CMD>NvimTreeToggle<CR>", "NvimTree" },
+    ["w"] = { "<CMD>w!<CR>", "Save" },
+    ["q"] = { "<CMD>q!<CR>", "Quit" },
+    ["c"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Hover Actions" },
+    -- ["c"] = { "<CMD>Bdelete!<CR>", "Close Buffer" },
+    ["f"] = { "<CMD>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+        "Find files" },
+    ["F"] = { "<CMD>Telescope live_grep theme=ivy<CR>", "Live Grep" },
+    ["g"] = { "<CMD>FloatermNew --height=0.8 --width=0.8 gitui<CR>", "GitUi" },
+    ["t"] = { "<CMD>FloatermToggle --height=0.8 --width=0.8 <CR>", "Floaterm" },
+    ["v"] = { "<CMD>FloatermNew  --height=0.8 --width=0.8  vmod -a && $SHELL <CR>", "Vmod Loader" },
     p = {
         name = "Packer",
-        c = {"<cmd>PackerCompile<cr>", "Compile"},
-        i = {"<cmd>PackerInstall<cr>", "Install"},
-        s = {"<cmd>PackerSync<cr>", "Sync"},
-        S = {"<cmd>PackerStatus<cr>", "Status"},
-        u = {"<cmd>PackerUpdate<cr>", "Update"}
+        c = { "<CMD>PackerCompile<CR>", "Compile" },
+        i = { "<CMD>PackerInstall<CR>", "Install" },
+        s = { "<CMD>PackerSync<CR>", "Sync" },
+        S = { "<CMD>PackerStatus<CR>", "Status" },
+        u = { "<CMD>PackerUpdate<CR>", "Update" }
     },
 
+    h = {
+        name = "Hexokinase",
+        t = { "<CMD>HexokinaseToggle<CR>", "Toggle Hexokinase" },
+        f = { "<CMD>HexokinaseTurnOn<CR>", "Turn On Hexokinase" },
+        g = { "<CMD>HexokinaseTurnOff<CR>", "Turn Off Hexokinase" },
+    },
     l = {
         name = "LSP",
-        a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
-        c = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover Actions"},
-        d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
-        w = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
-        f = {"<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format"},
-        i = {"<cmd>LspInfo<cr>", "Info"},
-        I = {"<cmd>LspInstallInfo<cr>", "Installer Info"},
-        j = {"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic"},
-        k = {"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic"},
-        l = {"<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action"},
-        q = {"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix"},
-        r = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
-        s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
-        S = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols"}
+        a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+        c = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Hover Actions" },
+        d = { "<CMD>Telescope lsp_document_diagnostics<CR>", "Document Diagnostics" },
+        w = { "<CMD>Telescope lsp_workspace_diagnostics<CR>", "Workspace Diagnostics" },
+        f = { "<CMD>lua vim.lsp.buf.format{async=true}<CR>", "Format" },
+        i = { "<CMD>LspInfo<CR>", "Info" },
+        I = { "<CMD>LspInstallInfo<CR>", "Installer Info" },
+        j = { "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+        k = { "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", "Prev Diagnostic" },
+        l = { "<CMD>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
+        q = { "<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>", "Quickfix" },
+        r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
+        s = { "<CMD>Telescope lsp_document_symbols<CR>", "Document Symbols" },
+        S = { "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Symbols" }
     },
     s = {
         name = "Search",
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
-        c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
-        h = {"<cmd>Telescope help_tags<cr>", "Find Help"},
-        M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
-        r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        R = {"<cmd>Telescope registers<cr>", "Registers"},
-        k = {"<cmd>Telescope keymaps<cr>", "Keymaps"},
-        C = {"<cmd>Telescope commands<cr>", "Commands"}
+        b = { "<CMD>Telescope git_branches<CR>", "Checkout branch" },
+        c = { "<CMD>Telescope colorscheme<CR>", "Colorscheme" },
+        h = { "<CMD>Telescope help_tags<CR>", "Find Help" },
+        M = { "<CMD>Telescope man_pages<CR>", "Man Pages" },
+        r = { "<CMD>Telescope oldfiles<CR>", "Open Recent File" },
+        R = { "<CMD>Telescope registers<CR>", "Registers" },
+        k = { "<CMD>Telescope keymaps<CR>", "Keymaps" },
+        C = { "<CMD>Telescope commands<CR>", "Commands" }
     },
-    r = {
-        name = "Rust",
-        a = {"<cmd>RustHoverActions<cr>", "RustHoverAction"}, -- HoverActions in Window : )
-        c = {"<cmd>RustCodeAction<cr>", "RustCodeAction"}, -- Code Action in Window : )
-        g = {"<cmd>RustViewCrateGraph<cr>", "CrateGraph"}
-    }
+    -- r = {
+    --     name = "Rust",
+    --     a = {"<CMD>RustHoverActions<CR>", "RustHoverAction"}, -- HoverActions in Window : )
+    --     c = {"<CMD>RustCodeAction<CR>", "RustCodeAction"}, -- Code Action in Window : )
+    --     g = {"<CMD>RustViewCrateGraph<CR>", "CrateGraph"}
+    -- }
 }
 
 return {
