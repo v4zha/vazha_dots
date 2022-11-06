@@ -19,13 +19,14 @@ return require('packer').startup(function(use)
     use { "nvim-telescope/telescope.nvim" }
     use { 'kyazdani42/nvim-tree.lua' }
     use { "ahmedkhalf/project.nvim" }
-    use {"ggandor/leap.nvim"}
+    use { "ggandor/leap.nvim" }
     -- LSP & Treesitter
 
     use { 'neovim/nvim-lspconfig' }
     use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" }
     use { 'nvim-treesitter/nvim-treesitter' }
     use { "jose-elias-alvarez/null-ls.nvim" }
+    use { 'j-hui/fidget.nvim' }
     -- Rust --
     -- use { 'simrat39/rust-tools.nvim' }
     use { 'saecki/crates.nvim' }
