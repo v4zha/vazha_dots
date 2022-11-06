@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/v4zha/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  ["leap.nvim"] = {
+    loaded = true,
+    path = "/home/v4zha/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/v4zha/.local/share/nvim/site/pack/packer/start/lualine.nvim",

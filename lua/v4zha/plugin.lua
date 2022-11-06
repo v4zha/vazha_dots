@@ -19,13 +19,13 @@ return require('packer').startup(function(use)
     use { "nvim-telescope/telescope.nvim" }
     use { 'kyazdani42/nvim-tree.lua' }
     use { "ahmedkhalf/project.nvim" }
-    use { "jose-elias-alvarez/null-ls.nvim" }
+    use {"ggandor/leap.nvim"}
     -- LSP & Treesitter
 
     use { 'neovim/nvim-lspconfig' }
-
     use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" }
     use { 'nvim-treesitter/nvim-treesitter' }
+    use { "jose-elias-alvarez/null-ls.nvim" }
     -- Rust --
     -- use { 'simrat39/rust-tools.nvim' }
     use { 'saecki/crates.nvim' }
@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
 
-    --
+    --term and whichkey
     use { 'voldikss/vim-floaterm' }
     use { 'folke/which-key.nvim' }
 
@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
 
     --haskell
     use { "itchyny/vim-haskell-indent" }
+
 
     if Packer_Bootstrap then
         require('packer').sync()
