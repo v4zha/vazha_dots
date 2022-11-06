@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
     use { "nvim-telescope/telescope.nvim" }
     use { 'kyazdani42/nvim-tree.lua' }
     use { "ahmedkhalf/project.nvim" }
+    use { "jose-elias-alvarez/null-ls.nvim" }
     -- LSP & Treesitter
 
     use { 'neovim/nvim-lspconfig' }
@@ -50,6 +51,9 @@ return require('packer').startup(function(use)
 
     --markdown
     use { "ellisonleao/glow.nvim" }
+
+    --haskell
+    use { "itchyny/vim-haskell-indent" }
 
     if Packer_Bootstrap then
         require('packer').sync()

@@ -3,7 +3,7 @@ if not status then
     return
 end
 treesitter.setup({
-    ensure_installed = {"c", "lua", "rust", "toml", "yaml", "markdown"},
+    ensure_installed = { "c", "lua", "rust", "toml", "yaml", "markdown" },
     auto_install = true,
     highlight = {
         enable = true
@@ -12,7 +12,8 @@ treesitter.setup({
         enable = true
     },
     indent = {
-        enable = true
+        enable = true,
+        disable = { 'python'}
     },
     rainbow = {
         enable = true,

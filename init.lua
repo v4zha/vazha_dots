@@ -23,11 +23,13 @@ require("v4zha.plugins.nvimtree")
 require("v4zha.plugins.treesitter")
 require("v4zha.plugins.whichkey")
 require("v4zha.plugins.project")
+require("v4zha.plugins.null")
 require("v4zha.plugins.lsp")
 require("v4zha.plugins.cmp")
 require("v4zha.plugins.autopairs")
 require("v4zha.plugins.telescope")
 require("v4zha.plugins.hexokinase")
+require("v4zha.plugins.glow")
 require("v4zha.plugins.comment")
 -- ==============================
 --    MOD : v4zha

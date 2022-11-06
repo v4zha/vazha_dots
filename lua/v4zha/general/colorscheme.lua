@@ -1,7 +1,7 @@
 local colorscheme = "kanagawa"
 vim.cmd("colorscheme " .. colorscheme)
 
-local status, kanagawa = pcall("require", "kanagawa")
+local status, kanagawa = pcall(require, "kanagawa")
 if not status then
     return
 end

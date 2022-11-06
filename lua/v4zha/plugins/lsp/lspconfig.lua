@@ -9,18 +9,25 @@ if not status then
     return
 end
 
-local function lsp_setup(lsp_server, opts)
-    if not opts then
-        opts = {
-            on_attach = on_attach,
-            flags = lsp_flags
-        }
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+local function lsp_setup(lsp_server, settings)
+    local opts = {
+        flags = lsp_flags,
+        capablities = capabilities,
+    }
+    if settings then
+        opts["settings"] = settings
     end
     lspconfig[lsp_server].setup(opts)
 end
 
 for _, lsp_server in pairs(lsp_servers) do
-    lsp_setup(lsp_server)
+    if type(lsp_server) == "table" then
+        lsp_setup(lsp_server["name"], lsp_server["settings"])
+    else
+        lsp_setup(lsp_server)
+    end
 end
 
 local signs = {
@@ -37,4 +44,3 @@ for type, icon in pairs(signs) do
         numhl = hl
     })
 end
-
