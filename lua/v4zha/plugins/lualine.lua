@@ -12,7 +12,7 @@ lualine.setup {
         theme = 'kanagawa',
         disabled_filetypes = { 'packer' },
         extensions = { 'man', 'nvim-tree' },
-        section_separators = { left = '', right = ''},
+        section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
         globalstatus = true,
         always_divide_middle = true
@@ -24,8 +24,8 @@ lualine.setup {
                 buffers_color = {
                     active = 'lualine_a_normal',
                     inactive = 'lualine_z_inactive',
+                    separator = "|"
                 },
-                -- separator = { left = '', right = '' }
             }
         },
         lualine_b = {},

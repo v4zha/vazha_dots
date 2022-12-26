@@ -29,10 +29,10 @@ local config = {
     updatetime = 300,
     writebackup = false,
 
-    tabstop = 4,
-    softtabstop = 4,
+    tabstop = 2,
+    softtabstop = 2,
     expandtab = true,
-    shiftwidth = 4,
+    shiftwidth = 2,
     cursorline = true,
     wrap = false,
 

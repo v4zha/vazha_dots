@@ -224,11 +224,6 @@ _G.packer_plugins = {
     path = "/home/v4zha/.local/share/nvim/site/pack/packer/start/vim-haskell-indent",
     url = "https://github.com/itchyny/vim-haskell-indent"
   },
-  ["vim-hexokinase"] = {
-    loaded = true,
-    path = "/home/v4zha/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
-    url = "https://github.com/rrethy/vim-hexokinase"
-  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/v4zha/.local/share/nvim/site/pack/packer/start/which-key.nvim",
