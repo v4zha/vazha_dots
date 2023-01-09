@@ -1,63 +1,58 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_Bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-    install_path })
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-
-  use { "wbthomason/packer.nvim" }
-  use { "lewis6991/impatient.nvim" }
-  use { "nvim-lua/plenary.nvim" }
-
-  use { "rebelot/kanagawa.nvim" }
-  use { "windwp/nvim-autopairs" }
-  use { "numToStr/Comment.nvim" }
-  use { "kyazdani42/nvim-web-devicons" }
-  use { "nvim-lualine/lualine.nvim" }
-  use { "nvim-telescope/telescope.nvim" }
-  use { 'kyazdani42/nvim-tree.lua' }
-  use { "ahmedkhalf/project.nvim" }
-  use { "ggandor/leap.nvim" }
+require("lazy").setup({
+  { "wbthomason/packer.nvim" },
+  { "lewis6991/impatient.nvim" },
+  { "nvim-lua/plenary.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "windwp/nvim-autopairs" },
+  { "numToStr/Comment.nvim" },
+  { "kyazdani42/nvim-web-devicons" },
+  { "nvim-lualine/lualine.nvim" },
+  { "nvim-telescope/telescope.nvim" },
+  { 'kyazdani42/nvim-tree.lua' },
+  { "ahmedkhalf/project.nvim" },
+  { "ggandor/leap.nvim" },
   -- LSP & Treesitter
 
-  use { 'neovim/nvim-lspconfig' }
-  use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" }
-  use { 'nvim-treesitter/nvim-treesitter' }
-  use { "jose-elias-alvarez/null-ls.nvim" }
-  use { 'j-hui/fidget.nvim' }
-  -- Rust --
-  -- use { 'simrat39/rust-tools.nvim' }
-  use { 'saecki/crates.nvim' }
-  use { 'mfussenegger/nvim-dap' }
+  { 'neovim/nvim-lspconfig' },
+  { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+  { 'nvim-treesitter/nvim-treesitter' },
+  { "jose-elias-alvarez/null-ls.nvim" },
+  { 'j-hui/fidget.nvim' },
+  -- Rust --,
+  --  { 'simrat39/rust-tools.nvim' }
+  { 'saecki/crates.nvim' },
+  { 'mfussenegger/nvim-dap' },
   --
 
   -- cmp & Snippet
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'rafamadriz/friendly-snippets' }
-
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
-  use { 'hrsh7th/cmp-nvim-lua' }
-  use { 'saadparwaiz1/cmp_luasnip' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  --term and whichkey
-  use { 'voldikss/vim-floaterm' }
-  use { 'folke/which-key.nvim' }
-
-  -- colors
-  -- use { 'rrethy/vim-hexokinase', run = "cd ~/local/share/nvim/site/pack/packer/start/hexokinase && make hexokinase" }
+  { 'L3MON4D3/LuaSnip' },
+  { 'rafamadriz/friendly-snippets' },
+  { 'hrsh7th/nvim-cmp' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'hrsh7th/cmp-nvim-lua' },
+  { 'saadparwaiz1/cmp_luasnip' },
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  --term and whichkey,
+  { 'voldikss/vim-floaterm' },
+  { 'folke/which-key.nvim' },
 
   --markdown
-  use { "ellisonleao/glow.nvim" }
+  { "ellisonleao/glow.nvim" },
 
   --haskell
-  use { "itchyny/vim-haskell-indent" }
+  { "itchyny/vim-haskell-indent" },
 
-
-  if Packer_Bootstrap then
-    require('packer').sync()
-  end
-end)
+})
