@@ -3,37 +3,36 @@
 -- ==============================
 
 -- ==============================
---    MOD : plugins
--- ==============================
- require("v4zha.plugins.lualine")
- require("v4zha.plugins.impatient")
- require("v4zha.plugins.nvimtree")
- require("v4zha.plugins.treesitter")
- require("v4zha.plugins.whichkey")
- require("v4zha.plugins.project")
- require("v4zha.plugins.fidget")
- require("v4zha.plugins.leap")
- require("v4zha.plugins.null")
- require("v4zha.plugins.lsp")
- require("v4zha.plugins.cmp")
- require("v4zha.plugins.autopairs")
- require("v4zha.plugins.telescope")
- require("v4zha.plugins.glow")
- require("v4zha.plugins.comment")
--- ==============================
---    MOD : keymaps
--- ==============================
- require("v4zha.keymaps.general")
- require("v4zha.keymaps.lsp")
- require("v4zha.keymaps.whichmap")
--- ==============================
---    MOD : general
--- ==============================
- require("v4zha.general.config")
- require("v4zha.general.neovide")
- require("v4zha.general.colorscheme")
--- ==============================
 --    MOD : v4zha
 -- ==============================
 require("v4zha.plugin")
-
+-- ==============================
+--    MOD : general
+-- ==============================
+require("v4zha.general.config")
+require("v4zha.general.neovide")
+require("v4zha.general.colorscheme")
+-- ==============================
+--    MOD : keymaps
+-- ==============================
+require("v4zha.keymaps.general")
+require("v4zha.keymaps.lsp")
+require("v4zha.keymaps.whichmap")
+-- ==============================
+--    MOD : plugins
+-- ==============================
+require("v4zha.plugins.lualine")
+require("v4zha.plugins.impatient")
+require("v4zha.plugins.nvimtree")
+require("v4zha.plugins.treesitter")
+require("v4zha.plugins.whichkey")
+require("v4zha.plugins.project")
+require("v4zha.plugins.fidget")
+require("v4zha.plugins.leap")
+require("v4zha.plugins.null")
+require("v4zha.plugins.lsp")
+require("v4zha.plugins.cmp")
+require("v4zha.plugins.autopairs")
+require("v4zha.plugins.telescope")
+require("v4zha.plugins.glow")
+require("v4zha.plugins.comment")

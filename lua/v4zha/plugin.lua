@@ -10,11 +10,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local plugins={
   { "wbthomason/packer.nvim" },
   { "lewis6991/impatient.nvim" },
   { "nvim-lua/plenary.nvim" },
-  { "rebelot/kanagawa.nvim" },
+  { "rebelot/kanagawa.nvim"},
   { "windwp/nvim-autopairs" },
   { "numToStr/Comment.nvim" },
   { "kyazdani42/nvim-web-devicons" },
@@ -26,7 +26,8 @@ require("lazy").setup({
   -- LSP & Treesitter
 
   { 'neovim/nvim-lspconfig' },
-  { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+  { "williamboman/mason.nvim"},
+  {"williamboman/mason-lspconfig.nvim"},
   { 'nvim-treesitter/nvim-treesitter' },
   { "jose-elias-alvarez/null-ls.nvim" },
   { 'j-hui/fidget.nvim' },
@@ -54,5 +55,8 @@ require("lazy").setup({
 
   --haskell
   { "itchyny/vim-haskell-indent" },
+}
 
+require("lazy").setup({
+  plugins
 })
