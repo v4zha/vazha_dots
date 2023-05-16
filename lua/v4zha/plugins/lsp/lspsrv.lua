@@ -19,8 +19,8 @@ local sumneko_lua = {
 }
 
 
-local lsp_servers = { 'clangd', sumneko_lua, 'rust_analyzer', 'taplo', 'html', 'tsserver', 'cssls', 'solidity','hls',
-    'pyright' ,'dockerls','yamlls'}
+local lsp_servers = { 'clangd', 'lua_ls', 'rust_analyzer', 'taplo', 'html', 'tsserver', 'cssls', 'solidity', 'hls',
+    'pyright', 'dockerls', 'yamlls', 'jdtls' }
 
 return {
     lsp_servers = lsp_servers

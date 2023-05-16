@@ -12,9 +12,9 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+
 nvim_tree.setup {
-  -- open_on_setup = true,
-  -- open_on_setup_file = false,
+  on_attach = on_attach,
   actions = {
     open_file = {
       quit_on_open = true
@@ -83,7 +83,6 @@ nvim_tree.setup {
 }
 
 local function open_nvim_tree()
-
   local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
 
