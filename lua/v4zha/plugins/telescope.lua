@@ -1,8 +1,15 @@
 local status, telescope = pcall(require, "telescope")
 if not status then
-    return
+  return
 end
-telescope.setup()
+telescope.setup({
+  pickers = {
+    lsp_document_diagnostics = {
+      theme = "get_dropdown",
+      sorter = "get_fuzzy_file"
+    }
+  }
+})
 telescope.load_extension('projects')
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', 'ff', builtin.find_files, {})
