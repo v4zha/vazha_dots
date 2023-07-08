@@ -11,6 +11,7 @@ local plugins = {
   { "windwp/nvim-autopairs" },
   { "numToStr/Comment.nvim" },
   { "kyazdani42/nvim-web-devicons" },
+
   { "nvim-lualine/lualine.nvim" },
   { "nvim-telescope/telescope.nvim" },
   { "MunifTanjim/nui.nvim" },
