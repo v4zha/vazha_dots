@@ -13,6 +13,7 @@ local whichmap = {
     "Find files" },
   ["F"] = { "<CMD>Telescope live_grep theme=ivy<CR>", "Live Grep" },
   ["g"] = { "<CMD>FloatermNew --height=0.8 --width=0.8 gitui<CR>", "GitUi" },
+  ["m"] = { "<CMD>MarkdownPreviewToggle<CR>", "Markdown Preview" },
   ["t"] = { "<CMD>FloatermToggle --height=0.8 --width=0.8 <CR>", "Floaterm" },
   ["v"] = { "<CMD>FloatermNew  --height=0.8 --width=0.8  vmod && $SHELL <CR>", "Vmod Loader" },
   d = {
