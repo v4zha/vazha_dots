@@ -50,7 +50,17 @@ local plugins = {
   { 'voldikss/vim-floaterm' },
   { 'folke/which-key.nvim' },
   -- markdown
-  { "ellisonleao/glow.nvim" },
+  -- { "ellisonleao/glow.nvim" },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = {
+        "markdown" }
+    end,
+    ft = {
+      "markdown" },
+  },
   -- haskell
   { "itchyny/vim-haskell-indent" }
   -- {"stevearc/dressing.nvim" },
