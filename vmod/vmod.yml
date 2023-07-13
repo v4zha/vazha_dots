@@ -1,0 +1,15 @@
+#Path where Neovim lua modules are located
+#Eg : ~/.config/nvim/lua/v4zha
+mod_path: 
+   ~/.config/nvim/lua/v4zha
+#PATH to the New module_bundled lua script 
+res_file: 
+   ~/.config/nvim/init.lua
+#List the modules
+#Eg : 
+modules : 
+      # reads the mod_path for lua scripts : )
+      - .
+      - general 
+      - keymaps 
+      - plugins
